@@ -107,10 +107,10 @@ def atest(model, device, test_loader, epoch, perf_measure):
 
     return np.mean(perf_accumulator), np.std(perf_accumulator)
 
-###参数###
-dataset="Kvasir"
-#choices=["Kvasir", "CVC"]
-data_root="./polyp_original/Kvasir-SEG/"
+######
+dataset=""
+#choices=["Kvasir", "CVC","Kvasir+CVC","2018DSB",""ISIC2018]
+data_root=""
 num_class=1
 epochs=200
 batchsize=16
@@ -118,7 +118,7 @@ lr=1e-4
 lrs=True
 lrs_min=1e-6
 multi_gpu=False
-###参数###
+######
 
 def build(dataset,data_root,batchsize,lr,multi_gpu,num_class):
     if torch.cuda.is_available():
@@ -246,28 +246,7 @@ def train(dataset,data_root,batchsize,lr,multi_gpu,num_class):
             )
 
 
-# def get_args():
-#     parser = argparse.ArgumentParser(description="Train FCBFormer on specified dataset")
-#     parser.add_argument("--dataset", type=str, required=True, choices=["Kvasir", "CVC"])
-#     parser.add_argument("--data-root", type=str, required=True, dest="root")
-#     parser.add_argument("--epochs", type=int, default=200)
-#     parser.add_argument("--batch-size", type=int, default=16)
-#     parser.add_argument("--learning-rate", type=float, default=1e-4, dest="lr")
-#     parser.add_argument(
-#         "--learning-rate-scheduler", type=str, default="true", dest="lrs"
-#     )
-#     parser.add_argument(
-#         "--learning-rate-scheduler-minimum", type=float, default=1e-6, dest="lrs_min"
-#     )
-#     parser.add_argument(
-#         "--multi-gpu", type=str, default="false", dest="mgpu", choices=["true", "false"]
-#     )
-#
-#     return parser.parse_args()
-
-
 def main():
-    # args = get_args()
     train(dataset,data_root,batchsize,lr,multi_gpu,num_class)
 
 
