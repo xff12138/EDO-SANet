@@ -8,11 +8,8 @@ Train EDO-SANet on the train split of a dataset:
 python train.py --dataset=[train data] --data-root=[path]
 ```
 
-+ Replace `[train data]` with training dataset name (options: `Kvasir`; `CVC`).
++ Replace `[train data]` with training dataset name (options: `Kvasir`; `CVC`; `Kvasir+CVC`; `2018DSB`; `ISIC2018`).
 
-+ Replace `[path]` with path to parent directory of `/images` and `/masks` directories (training on Kvasir-SEG); or parent directory of `/Original` and `/Ground Truth` directories (training on CVC-ClinicDB).
-
-+ To train on multiple GPUs, include `--multi-gpu=true`.
 
 ### Prediction
 
@@ -20,13 +17,11 @@ Generate predictions from a trained model for a test split. Note, the test split
 
 ```
 python predict.py --train-dataset=[train data] --test-dataset=[test data] --data-root=[path]
-```
 
-+ Replace `[train data]` with training dataset name (options: `Kvasir`; `CVC`).
++ Replace `[train data]` with training dataset name (options: `Kvasir`; `CVC`; `Kvasir+CVC`; `2018DSB`; `ISIC2018`).
 
-+ Replace `[test data]` with testing dataset name (options: `Kvasir`; `CVC`).
++ Replace `[test data]` with testing dataset name (options: `Kvasir`; `CVC`; `2018DSB`; `ISIC2018`;`CVC-ColonDB`; `ETIS-Larib`; `EndoScene-CVC300`).
 
-+ Replace `[path]` with path to parent directory of `/images` and `/masks` directories (testing on Kvasir-SEG); or parent directory of `/Original` and `/Ground Truth` directories (testing on CVC-ClinicDB).
 
 ### Evaluation
 
@@ -36,8 +31,7 @@ Evaluate pre-computed predictions from a trained model for a test split. Note, t
 python eval.py --train-dataset=[train data] --test-dataset=[test data] --data-root=[path]
 ```
 
-+ Replace `[train data]` with training dataset name (options: `Kvasir`; `CVC`).
++ Replace `[train data]` with training dataset name (options: `Kvasir`; `CVC`; `Kvasir+CVC`; `2018DSB`; `ISIC2018`).
 
-+ Replace `[test data]` with testing dataset name (options: `Kvasir`; `CVC`).
++ Replace `[test data]` with testing dataset name (options: `Kvasir`; `CVC`; `2018DSB`; `ISIC2018`;`CVC-ColonDB`; `ETIS-Larib`; `EndoScene-CVC300`).
 
-+ Replace `[path]` with path to parent directory of `/images` and `/masks` directories (testing on Kvasir-SEG); or parent directory of `/Original` and `/Ground Truth` directories (testing on CVC-ClinicDB).
