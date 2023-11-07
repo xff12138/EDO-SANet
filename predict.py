@@ -30,6 +30,31 @@ def build(train_dataset,test_dataset,root,num_class):
         input_paths = sorted(glob.glob(img_path))
         depth_path = root + "Ground Truth/*"
         target_paths = sorted(glob.glob(depth_path))
+    if test_dataset == "ETIS-Larib":
+        img_path = root + "Original/*"
+        input_paths = sorted(glob.glob(img_path))
+        depth_path = root + "Ground Truth/*"
+        target_paths = sorted(glob.glob(depth_path))
+    if test_dataset == "CVC-ColonDB":
+        img_path = root + "images/*"
+        input_paths = sorted(glob.glob(img_path))
+        depth_path = root + "masks/*"
+        target_paths = sorted(glob.glob(depth_path))
+    if test_dataset == "CVC-300":
+        img_path = root + "images/*"
+        input_paths = sorted(glob.glob(img_path))
+        depth_path = root + "masks/*"
+        target_paths = sorted(glob.glob(depth_path))
+    if test_dataset == "2018DSB":
+        img_path = root + "images/*"
+        input_paths = sorted(glob.glob(img_path))
+        depth_path = root + "masks/*"
+        target_paths = sorted(glob.glob(depth_path))
+    if test_dataset == "ISIC2018":
+        img_path = root + "ISIC2018_Task1-2_Training_Input/*"
+        input_paths = sorted(glob.glob(img_path))
+        depth_path = root + "ISIC2018_Task1_Training_GroundTruth/*"
+        target_paths = sorted(glob.glob(depth_path))
     _, test_dataloader, _ = dataloaders.get_dataloaders(
         input_paths, target_paths, batch_size=1, num_class=num_class,
     )
