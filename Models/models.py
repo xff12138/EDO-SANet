@@ -194,52 +194,6 @@ class DCNv3_Block(nn.Module):
         return x
 
 
-# class DCNv3_Block(nn.Module):
-#     def __init__(self, in_channels, out_channels, k=1, s=1, p=1, g=1, d=1):
-
-#         super().__init__()
-#         self.block_in1 = DCNv3(in_channels, kernel_size=k, stride=s, group=g, pad=p, dilation=d)
-#         self.bolck_in12 = nn.Sequential(
-#             nn.GroupNorm(32, in_channels),
-#             # nn.BatchNorm2d(in_channels),
-#             nn.SiLU(),
-#             # nn.ReLU(),
-#         )
-#         self.block_in2 = Operator_Block(in_channels, operator_type="sobel")
-
-#         self.block_out = nn.Sequential(
-#             nn.Conv2d(in_channels, in_channels, kernel_size=3, padding=1),
-#             nn.GroupNorm(32, in_channels),
-#             # nn.BatchNorm2d(in_channels),
-#             nn.SiLU()
-#             # nn.ReLU()
-#         )
-
-#         self.skip = nn.Identity()
-
-#         self.down_sample = nn.Sequential(
-#             nn.Conv2d(in_channels, out_channels, kernel_size=3, stride=2, padding=1),
-#             nn.GroupNorm(32, out_channels),
-#             # nn.BatchNorm2d(out_channels)
-#         )
-
-#     def forward(self, x):
-#         ####DCNv3
-#         x1 = x.permute(0, 2, 3, 1)
-#         x1= self.block_in1(x1)
-#         x1 = x1.permute(0, 3, 1, 2)
-#         x1 = self.bolck_in12(x1)
-#         #####Sobel
-#         x2 = self.block_in2(x)
-
-#         x12 = x1 + x2
-#         x_out = self.block_out(x12)
-#         x = x_out + self.skip(x)
-#         x = self.down_sample(x)
-
-#         return x
-
-
 class Encoder(nn.Module):
     def __init__(self):
 
