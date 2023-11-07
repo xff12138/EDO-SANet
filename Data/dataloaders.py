@@ -11,8 +11,7 @@ from Data.dataset import SegDataset
 
 def split_ids(len_ids):
     train_size = int(round((80 / 100) * len_ids))
-    # valid_size = int(round((10 / 100) * len_ids))
-    valid_size = int(round((3 / 100) * len_ids))
+    valid_size = int(round((10 / 100) * len_ids))
     test_size = int(round((10 / 100) * len_ids))
 
     train_indices, test_indices = train_test_split(
@@ -21,12 +20,10 @@ def split_ids(len_ids):
         random_state=42,
     )
 
-    # train_indices, val_indices = train_test_split(
-    #     train_indices, test_size=test_size, random_state=42
-    # )
     train_indices, val_indices = train_test_split(
-        np.linspace(0, len_ids - 1, len_ids).astype("int"), test_size=valid_size, random_state=42
+         train_indices, test_size=valid_size, random_state=42
     )
+
 
     return train_indices, test_indices, val_indices
 
