@@ -8,9 +8,9 @@ from skimage.transform import resize
 # print(torch.cuda.is_available())
 
 
-train_dataset = "Kvasir"
-test_dataset = "Kvasir"
-root = "./polyp_original/Kvasir-SEG/"
+train_dataset = ""
+test_dataset = ""
+root = ""
 
 if test_dataset == "Kvasir":
     prediction_files = sorted(
@@ -31,6 +31,56 @@ elif test_dataset == "CVC":
         )
     )
     depth_path = root + "Ground Truth/*"
+    target_paths = sorted(glob.glob(depth_path))
+ elif test_dataset == "ETIS-Larib":
+    prediction_files = sorted(
+        glob.glob(
+            "./Predictions/Trained on {}/Tested on {}/*".format(
+                train_dataset, test_dataset
+            )
+        )
+    )
+    depth_path = root + "Ground Truth/*"
+    target_paths = sorted(glob.glob(depth_path))
+ elif test_dataset == "CVC-ColonDB":
+    prediction_files = sorted(
+        glob.glob(
+            "./Predictions/Trained on {}/Tested on {}/*".format(
+                train_dataset, test_dataset
+            )
+        )
+    )
+    depth_path = root + "masks/*"
+    target_paths = sorted(glob.glob(depth_path))
+ elif test_dataset == "CVC-300":
+    prediction_files = sorted(
+        glob.glob(
+            "./Predictions/Trained on {}/Tested on {}/*".format(
+                train_dataset, test_dataset
+            )
+        )
+    )
+    depth_path = root + "masks/*"
+    target_paths = sorted(glob.glob(depth_path))
+ elif test_dataset == "2018DSB":
+    prediction_files = sorted(
+        glob.glob(
+            "./Predictions/Trained on {}/Tested on {}/*".format(
+                train_dataset, test_dataset
+            )
+        )
+    )
+    depth_path = root + "masks/*"
+    target_paths = sorted(glob.glob(depth_path))
+ elif test_dataset == "ISIC2018":
+    prediction_files = sorted(
+        glob.glob(
+            "./Predictions/Trained on {}/Tested on {}/*".format(
+                train_dataset, test_dataset
+            )
+        )
+    )
+    depth_path = root + "ISIC2018_Task1_Training_GroundTruth/*"
     target_paths = sorted(glob.glob(depth_path))
 
 _, test_indices, val_indices = split_ids(len(target_paths))
