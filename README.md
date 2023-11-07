@@ -1,6 +1,12 @@
 # EDO-SANet
 
 ### preparation
+- Install the requirements:
+
+```
+pip install -r requirements.txt
+```
+
 - Compiling CUDA operators
 ```bash
 cd ./ops_dcnv3
