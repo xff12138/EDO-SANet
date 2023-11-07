@@ -17,6 +17,7 @@ Generate predictions from a trained model for a test split. Note, the test split
 
 ```
 python predict.py --train-dataset=[train data] --test-dataset=[test data] --data-root=[path]
+```
 
 + Replace `[train data]` with training dataset name (options: `Kvasir`; `CVC`; `Kvasir+CVC`; `2018DSB`; `ISIC2018`).
 
