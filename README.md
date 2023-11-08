@@ -1,6 +1,6 @@
 # EDO-SANet
 
-### preparation
+### Preparation
 - Install the requirements:
 
 ```
